@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Body Mass Index</string>
-    <!-- TODO -->
+    <string name="main_invalid_weight">InvalidWeight</string>
+    <string name="main_invalid_height">InvalidHeight</string>
+    <string name="main_bmi">Bmi</string>
+    <string name="main_overweight">Overweight</string>
+    <string name="titleWeight">Weight</string>
+    <string name="weight">(kg)</string>
+    <string name="titleHeight">Height</string>
+    <string name="height">(m)</string>
+    <string name="reset">RESET</string>
+    <string name="calculate">CALCULATE BMI</string>
+    <string name="result"></string>
+
 </resources>

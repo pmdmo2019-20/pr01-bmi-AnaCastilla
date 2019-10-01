@@ -6,8 +6,56 @@
     android:layout_height="match_parent"
     android:background="@drawable/main_activity_background"
     android:orientation="vertical"
+    android:padding="@dimen/main_dimens"
     tools:context=".ui.main.MainActivity">
 
-    <!-- TODO -->
+    <TextView
+        android:id="@+id/lblWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titleWeight" />
 
+    <EditText
+        android:id="@+id/txtWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/weight" />
+
+    <TextView
+        android:id="@+id/lblHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titleHeight" />
+
+    <EditText
+        android:id="@+id/txtHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/height" />
+
+    <Button
+        android:id="@+id/btnReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reset" />
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate" />
+
+    <TextView
+        android:id="@id/lblresult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/main_result_top"
+        android:layout_marginLeft="@dimen/main_result_left"
+        android:text="@string/result"/>
+
+    <ImageView
+        android:id="@+id/imgBmi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"/>
 </LinearLayout>

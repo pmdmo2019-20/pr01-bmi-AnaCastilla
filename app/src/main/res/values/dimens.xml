@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- TODO -->
+    <dimen name="main_dimens">20dp</dimen>
+    <dimen name="main_result_top">10</dimen>
+    <dimen name="main_result_left">80</dimen>
 </resources>
