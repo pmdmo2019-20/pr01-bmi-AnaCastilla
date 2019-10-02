@@ -3,6 +3,7 @@ package es.iessaladillo.pedrojoya.pr01.ui.main;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button resetButton, calculateButton;
     private EditText weight, height;
+    private TextView result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private void reset(){
         weight.setText("");
         height.setText("");
+        result.setText("");
     }
 
     private void calculate(){
@@ -31,10 +34,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     private void setupViews(){
         resetButton = ActivityCompat.requireViewById(this, R.id.btnReset);
         weight = ActivityCompat.requireViewById(this, R.id.txtWeight);
         height = ActivityCompat.requireViewById(this, R.id.txtHeight);
+        result = ActivityCompat.requireViewById(this, R.id.lblresult);
 
         resetButton.setOnClickListener(r -> reset());
     }

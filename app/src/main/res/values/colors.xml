@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="black">#0a0a0a</color>
 
     <color name="main_activity_background_startColor">#74ebd5</color>
     <color name="main_activity_background_endColor">#ACB6E5</color>

@@ -33,29 +33,45 @@
         android:layout_height="wrap_content"
         android:text="@string/height" />
 
-    <Button
-        android:id="@+id/btnReset"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/reset" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnCalculate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/calculate" />
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/main_button_top"
+            android:text="@string/reset" />
 
+        <Button
+            android:id="@+id/btnCalculate"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/main_button_top"
+            android:text="@string/calculate" />
+
+    </LinearLayout>
     <TextView
-        android:id="@id/lblresult"
+        android:id="@+id/lblresult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/main_result_top"
-        android:layout_marginLeft="@dimen/main_result_left"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/main_result_text"
         android:text="@string/result"/>
 
     <ImageView
         android:id="@+id/imgBmi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/main_image_top"
         android:scaleType="centerCrop"/>
+
+
 </LinearLayout>

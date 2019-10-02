@@ -10,6 +10,6 @@
     <string name="height">(m)</string>
     <string name="reset">RESET</string>
     <string name="calculate">CALCULATE BMI</string>
-    <string name="result"></string>
+    <string name="result">a</string>
 
 </resources>
