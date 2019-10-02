@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="main_dimens">20dp</dimen>
+    <dimen name="main_dimens">20</dimen>
     <dimen name="main_button_top">10</dimen>
     <dimen name="main_result_top">20</dimen>
     <dimen name="main_result_text">25</dimen>

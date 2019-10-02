@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <item name="lblWeight" type="id"/>
+    <item name="lblHeight" type="id"/>
+    <item name="txtWeight" type="id"/>
+    <item name="txtHeight" type="id"/>
+    <item name="btnCalculate" type="id"/>
+    <item name="btnReset" type="id"/>
+    <item name="lblResult" type="id"/>
+    <item name="imgBmi" type="id"/>
 </resources>

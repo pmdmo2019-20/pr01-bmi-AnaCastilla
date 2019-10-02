@@ -93,8 +93,8 @@ public class MainActivityTest {
             .check(matches(withText("")));
         onView(withId(R.id.txtWeight))
             .check(matches(withText("")));
-       /* onView(withId(R.id.lblResult))
-            .check(matches(withText("")));*/
+        onView(withId(R.id.lblResult))
+            .check(matches(withText("")));
         onView(withId(R.id.imgBmi))
             .check(matches(new DrawableMatcher(R.drawable.bmi)));
     }
@@ -109,9 +109,9 @@ public class MainActivityTest {
             .perform(typeText("2"), closeSoftKeyboard());
         onView(withId(R.id.btnCalculate)).perform(click());
 
-      /*  onView(withId(R.id.lblResult))
+        onView(withId(R.id.lblResult))
             .check(matches(withText(activityRule.getActivity().getString(R.string.main_bmi, 25f,
-                activityRule.getActivity().getString(R.string.main_overweight)))));*/
+                activityRule.getActivity().getString(R.string.main_overweight)))));
         onView(withId(R.id.imgBmi))
             .check(matches(new DrawableMatcher(R.drawable.overweight)));
     }

@@ -23,7 +23,7 @@ public class BmiCalculator {
      * @param bmi Body mass index to get clasification from
      * @return A BmiClasification enum with the clasification of BMI
      */
-    public BmiClasification getBmiClasification(float bmi) {
+    public static BmiClasification getBmiClasification(float bmi) {
         BmiClasification clasif = null;
 
         if (bmi <= 18.5) {
