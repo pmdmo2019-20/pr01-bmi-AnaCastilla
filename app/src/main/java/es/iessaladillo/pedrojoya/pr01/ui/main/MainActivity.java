@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtWeight, txtHeight;
     private TextView res;
     private ImageView photo;
+    private BmiCalculator bc = new BmiCalculator();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,53 +32,48 @@ public class MainActivity extends AppCompatActivity {
         txtWeight.setText("");
         txtHeight.setText("");
         res.setText("");
+        photo.setImageResource(R.drawable.bmi);
     }
 
-    private void calculateBmi(){
-        String weight = txtWeight.getText().toString();
-        String height = txtHeight.getText().toString();
-        float bmiCalculated;
+    private void setImageAndText() {
 
-        if (isValidForm(weight, height)) {
-           bmiCalculated = BmiCalculator.calculateBmi(Float.parseFloat(weight), Float.parseFloat(height));
-           setImageAndText(bmiCalculated);
+        float bmi;
+        if (isValidForm()) {
+            bmi = bc.calculateBmi(Float.parseFloat(String.valueOf(txtWeight.getText())), Float.parseFloat(String.valueOf(txtHeight.getText())));
+
+            switch (bc.getBmiClasification(bmi)) {
+                case LOW_WEIGHT:
+                    photo.setImageResource(R.drawable.underweight);
+                    res.setText("BMI: " + bmi + " Underweight");
+                case NORMAL_WEIGHT:
+                    photo.setImageResource(R.drawable.normal_weight);
+                    res.setText("BMI: " + bmi + " Normal weight");
+                case OVERWWEIGHT:
+                    photo.setImageResource(R.drawable.overweight);
+                    res.setText("BMI: " + bmi + " Overweight");
+                case OBESITY_GRADE_1:
+                    photo.setImageResource(R.drawable.obesity1);
+                    res.setText("BMI: " + bmi + " Obesity class 1");
+                case OBESITY_GRADE_2:
+                    photo.setImageResource(R.drawable.obesity2);
+                    res.setText("BMI: " + bmi + " Obesity class 2");
+                case OBESITY_GRADE_3:
+                    photo.setImageResource(R.drawable.obesity3);
+                    res.setText("BMI: " + bmi + " Obesity class 3");
+            }
         }
+
+
     }
 
-    private void setImageAndText(float bmiCalculated) {
-        BmiCalculator.BmiClasification clasif = BmiCalculator.getBmiClasification(bmiCalculated);
-
-        if (clasif.equals(BmiCalculator.BmiClasification.LOW_WEIGHT)) {
-            photo.setImageResource(R.drawable.underweight);
-            res.setText("BMI: " + bmiCalculated + " Underweight");
-        } else if (clasif.equals(BmiCalculator.BmiClasification.NORMAL_WEIGHT)) {
-            photo.setImageResource(R.drawable.normal_weight);
-            res.setText("BMI: " + bmiCalculated + " Normal weight");
-        } else if (clasif.equals(BmiCalculator.BmiClasification.OVERWWEIGHT)) {
-            photo.setImageResource(R.drawable.overweight);
-            res.setText("BMI: " + bmiCalculated + " Overweight");
-        } else if (clasif.equals(BmiCalculator.BmiClasification.OBESITY_GRADE_1)) {
-            photo.setImageResource(R.drawable.obesity1);
-            res.setText("BMI: " + bmiCalculated + " Obesity class 1");
-        } else if (clasif.equals(BmiCalculator.BmiClasification.OBESITY_GRADE_2)) {
-            photo.setImageResource(R.drawable.obesity2);
-            res.setText("BMI: " + bmiCalculated + " Obesity class 2");
-        } else if (clasif.equals(BmiCalculator.BmiClasification.OBESITY_GRADE_3)) {
-            photo.setImageResource(R.drawable.obesity3);
-            res.setText("BMI: " + bmiCalculated + " Obesity class 3");
-        }
+    private boolean isValidForm() {
+        return isValidWeight() && isValidHeight();
     }
 
-    private boolean isValidForm(String weight, String height) {
-        return isValidWeight(weight) && isValidHeight(height);
-    }
-
-    private boolean isValidWeight(String weight) {
+    private boolean isValidWeight() {
         boolean isValid = false;
 
-        if (!TextUtils.isEmpty(weight)) {
-            isValid = true;
-        } else if (!weight.equals(0)) {
+        if (!TextUtils.isEmpty(txtWeight.getText().toString()) && !txtWeight.getText().toString().startsWith("0")) {
             isValid = true;
         } else {
             txtWeight.setError("Invalid weight.");
@@ -85,12 +81,10 @@ public class MainActivity extends AppCompatActivity {
         return isValid;
     }
 
-    private boolean isValidHeight(String height) {
+    private boolean isValidHeight() {
         boolean isValid = false;
 
-        if (!TextUtils.isEmpty(height)) {
-            isValid = true;
-        } else if (!height.equals(0)) {
+        if (!TextUtils.isEmpty(txtHeight.getText().toString()) && !txtHeight.getText().toString().startsWith("0")) {
             isValid = true;
         } else {
             txtHeight.setError("Invalid height.");
@@ -106,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         photo = ActivityCompat.requireViewById(this, R.id.imgBmi);
         calculateButton = ActivityCompat.requireViewById(this, R.id.btnCalculate);
 
-        calculateButton.setOnClickListener(c -> calculateBmi());
+        calculateButton.setOnClickListener(c -> setImageAndText());
         resetButton.setOnClickListener(r -> reset());
     }
 
