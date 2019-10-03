@@ -13,7 +13,13 @@ public class BmiCalculator {
     public float calculateBmi(float weightInKgs, float heightInMeters) {
         float result;
 
-        result = (float) (weightInKgs/(Math.pow(heightInMeters, 2)));
+        if (weightInKgs <= 0) {
+            throw new IllegalArgumentException("Weight cannot be negative neither 0");
+        } else if (heightInMeters <= 0) {
+            throw new IllegalArgumentException("Height cannot be negative neither 0");
+        } else {
+            result = weightInKgs/(heightInMeters*2);
+        }
 
         return result;
     }
@@ -24,23 +30,22 @@ public class BmiCalculator {
      * @return A BmiClasification enum with the clasification of BMI
      */
     public BmiClasification getBmiClasification(float bmi) {
-        BmiClasification clasif = null;
 
-        if (bmi <= 18.5) {
-            clasif = BmiClasification.LOW_WEIGHT;
-        } else if (bmi > 18.5 || bmi <= 24.9) {
-            clasif = BmiClasification.NORMAL_WEIGHT;
-        } else if (bmi >= 25 || bmi <= 29.9) {
-            clasif = BmiClasification.OVERWWEIGHT;
-        } else if (bmi >= 30 || bmi <= 34.9) {
-            clasif = BmiClasification.OBESITY_GRADE_1;
-        } else if (bmi >= 35 || bmi <= 39.9) {
-            clasif = BmiClasification.OBESITY_GRADE_2;
-        } else if (bmi >= 40) {
-            clasif = BmiClasification.OBESITY_GRADE_3;
+        if (bmi < 18.5f) {
+            return BmiClasification.LOW_WEIGHT;
+        } else if (bmi >= 18.5f && bmi <= 24.99f) {
+            return BmiClasification.NORMAL_WEIGHT;
+        } else if (bmi >= 25f && bmi <= 29.99f) {
+            return BmiClasification.OVERWWEIGHT;
+        } else if (bmi >= 30f && bmi <= 34.99f) {
+            return BmiClasification.OBESITY_GRADE_1;
+        } else if (bmi >= 35f && bmi <= 39.99f) {
+            return BmiClasification.OBESITY_GRADE_2;
+        } else if (bmi >= 40f) {
+            return BmiClasification.OBESITY_GRADE_3;
         }
 
-        return clasif;
+        return null;
     }
 
     public enum BmiClasification {

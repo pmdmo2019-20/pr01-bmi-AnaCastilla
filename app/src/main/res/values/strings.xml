@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Body Mass Index</string>
-    <string name="main_invalid_weight">InvalidWeight</string>
-    <string name="main_invalid_height">InvalidHeight</string>
-    <string name="main_bmi">BMI: %.2f</string>
+    <string name="main_invalid_weight">Invalid weight.</string>
+    <string name="main_invalid_height">Invalid height.</string>
+    <string name="main_bmi">BMI: %.1f %s</string>
     <string name="main_underweight">Underweight</string>
     <string name="main_normalweight">Normal weight</string>
     <string name="main_overweight">Overweight</string>

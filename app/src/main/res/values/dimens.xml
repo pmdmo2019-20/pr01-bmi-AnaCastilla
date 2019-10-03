@@ -3,6 +3,6 @@
     <dimen name="main_dimens">20dp</dimen>
     <dimen name="main_button_top">10dp</dimen>
     <dimen name="main_result_top">20dp</dimen>
-    <dimen name="main_result_text">25sp</dimen>
+    <dimen name="main_result_text">20sp</dimen>
     <dimen name="main_image_top">30dp</dimen>
 </resources>

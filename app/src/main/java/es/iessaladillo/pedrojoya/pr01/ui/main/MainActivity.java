@@ -12,6 +12,7 @@ import androidx.core.app.ActivityCompat;
 
 import es.iessaladillo.pedrojoya.pr01.R;
 import es.iessaladillo.pedrojoya.pr01.bmi.BmiCalculator;
+import es.iessaladillo.pedrojoya.pr01.utils.SoftInputUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,26 +41,33 @@ public class MainActivity extends AppCompatActivity {
         float bmi;
         if (isValidForm()) {
             bmi = bc.calculateBmi(Float.parseFloat(String.valueOf(txtWeight.getText())), Float.parseFloat(String.valueOf(txtHeight.getText())));
+            SoftInputUtils.hideKeyboard(txtHeight);
 
             switch (bc.getBmiClasification(bmi)) {
                 case LOW_WEIGHT:
                     photo.setImageResource(R.drawable.underweight);
-                    res.setText("BMI: " + bmi + " Underweight");
+                    res.setText(getString(R.string.main_bmi, bmi, getString(R.string.main_underweight)));
+                    break;
                 case NORMAL_WEIGHT:
                     photo.setImageResource(R.drawable.normal_weight);
-                    res.setText("BMI: " + bmi + " Normal weight");
+                    res.setText(getString(R.string.main_bmi, bmi, getString(R.string.main_normalweight)));
+                    break;
                 case OVERWWEIGHT:
                     photo.setImageResource(R.drawable.overweight);
-                    res.setText("BMI: " + bmi + " Overweight");
+                    res.setText(getString(R.string.main_bmi, bmi, getString(R.string.main_overweight)));
+                    break;
                 case OBESITY_GRADE_1:
                     photo.setImageResource(R.drawable.obesity1);
-                    res.setText("BMI: " + bmi + " Obesity class 1");
+                    res.setText(getString(R.string.main_bmi, bmi, getString(R.string.main_obesity1)));
+                    break;
                 case OBESITY_GRADE_2:
                     photo.setImageResource(R.drawable.obesity2);
-                    res.setText("BMI: " + bmi + " Obesity class 2");
+                    res.setText(getString(R.string.main_bmi, bmi, getString(R.string.main_obesity2)));
+                    break;
                 case OBESITY_GRADE_3:
                     photo.setImageResource(R.drawable.obesity3);
-                    res.setText("BMI: " + bmi + " Obesity class 3");
+                    res.setText(getString(R.string.main_bmi, bmi, getString(R.string.main_obesity3)));
+                    break;
             }
         }
 
@@ -73,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean isValidWeight() {
         boolean isValid = false;
 
-        if (!TextUtils.isEmpty(txtWeight.getText().toString()) && !txtWeight.getText().toString().startsWith("0")) {
+        if (!TextUtils.isEmpty(txtWeight.getText().toString()) && !txtWeight.getText().toString().equals("0")) {
             isValid = true;
         } else {
             txtWeight.setError("Invalid weight.");
@@ -84,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean isValidHeight() {
         boolean isValid = false;
 
-        if (!TextUtils.isEmpty(txtHeight.getText().toString()) && !txtHeight.getText().toString().startsWith("0")) {
+        if (!TextUtils.isEmpty(txtHeight.getText().toString()) && !txtHeight.getText().toString().equals("0")) {
             isValid = true;
         } else {
             txtHeight.setError("Invalid height.");
